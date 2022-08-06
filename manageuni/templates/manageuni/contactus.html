@@ -1,0 +1,13 @@
+{% extends 'manageuni/base.html' %}
+{% block content %}
+{% if valid %}
+<h3 style="color: green;"> your form submited successfully</h3>
+{% else %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">submit</button>
+</form>
+{% endif %}
+  
+  {% endblock %}

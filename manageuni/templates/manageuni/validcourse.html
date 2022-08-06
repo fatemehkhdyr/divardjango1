@@ -1,0 +1,15 @@
+
+{% extends 'manageuni/base.html' %}
+{% block content %}
+{% if request.user.is_superuser %}
+<a href="{% url 'manageuni:manage' %}">create new course</a>
+{% endif %}
+{% for cu in courses %}
+    <div><p>{{cu.course_name}}</p></div>
+    <div><p>{{cu.departement}}</p></div>
+    <div><p>{{cu.first_day}} and {{cu.second_day}}</p></div>
+    <div><p>{{cu.start_time}} to {{cu.stop_time}}</p></div>
+    <div><p>{{cu.teacher}}</p></div>
+    <p>______________________________________________________________</p>
+{% endfor %}
+{% endblock %}
